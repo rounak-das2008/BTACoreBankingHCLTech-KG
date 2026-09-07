@@ -1,0 +1,18 @@
+flowchart TB
+    CD{{"CONDUCTOR<br/>state only, no content"}}
+    H["Named human:<br/>retry, replan, escalate"]
+
+    CD -->|"instructions"| A1["Comprehend"]
+    CD -->|"instructions"| A2["Specify"]
+    CD -->|"instructions"| A3["Construct"]
+    CD -->|"instructions"| A4["Verify"]
+
+    A1 -->|"state"| CD
+    A2 -->|"state"| CD
+    A3 -->|"state"| CD
+    A4 -->|"state"| CD
+
+    CD -->|"on failure"| H
+
+    style CD fill:#E85B1E,color:#ffffff
+    style H fill:#8B1A1A,color:#ffffff

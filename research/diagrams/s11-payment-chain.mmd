@@ -1,0 +1,12 @@
+flowchart LR
+    A["EU Instant<br/>Payments Regulation"] --> B["Requirement:<br/>Verification of Payee"]
+    B --> C["BIAN service domain:<br/>Payment Execution"]
+    C --> D["User story and<br/>acceptance criteria"]
+    D --> E["Services, endpoints,<br/>tables, topics"]
+    D --> F["Tests that<br/>prove it"]
+    E --> G["Release that<br/>shipped it"]
+    F --> G
+    G --> H["Evidence pack:<br/>one query"]
+
+    style A fill:#1B2A4A,color:#ffffff
+    style H fill:#2E7D32,color:#ffffff

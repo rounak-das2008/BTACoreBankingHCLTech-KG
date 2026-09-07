@@ -1,0 +1,10 @@
+flowchart LR
+    A["Estate exceeds<br/>individual memory"] --> E["Delivery risk"]
+    B["Knowledge leaves<br/>with people"] --> E
+    C["Documentation<br/>stale on arrival"] --> E
+    D["Deadlines fixed<br/>and external"] --> E
+    E --> F{"Can you prove<br/>the change was safe?"}
+    F -->|"Today: largely from memory"| G["Audit and<br/>supervisory risk"]
+
+    style E fill:#1B2A4A,color:#ffffff
+    style G fill:#8B1A1A,color:#ffffff

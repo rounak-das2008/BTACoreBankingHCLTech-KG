@@ -1,0 +1,24 @@
+flowchart TB
+    P6["P6 - GOVERNANCE AND EVIDENCE<br/>agent identity, immutable log, approval gates"]
+    P5["P5 - ORCHESTRATION: the Conductor<br/>state in, instructions out, retry, escalate"]
+    P4["P4 - AGENT FLEET<br/>Comprehend, Specify, Construct, Verify, Operate, Curate"]
+    P3["P3 - SEMANTIC BRIDGE<br/>business concept to technical artefact"]
+    P2["P2 - BUSINESS ONTOLOGY<br/>BIAN, ISO 20022, FIBO"]
+    P1["P1 - ESTATE GRAPH<br/>repos, services, tables, topics, tests, releases"]
+    P0["P0 - GROUND TRUTH: no LLM<br/>build files, LSP, schema, Git, pipelines, traces"]
+
+    P6 --> P5
+    P5 --> P4
+    P4 --> P3
+    P3 --> P2
+    P3 --> P1
+    P2 --> P0
+    P1 --> P0
+
+    style P6 fill:#8B1A1A,color:#ffffff
+    style P5 fill:#6A1B9A,color:#ffffff
+    style P4 fill:#5B3A8E,color:#ffffff
+    style P3 fill:#1B5E20,color:#ffffff
+    style P2 fill:#2E7D32,color:#ffffff
+    style P1 fill:#2E5E8B,color:#ffffff
+    style P0 fill:#1B2A4A,color:#ffffff
