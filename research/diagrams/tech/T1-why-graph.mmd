@@ -1,0 +1,17 @@
+flowchart LR
+    Q["Question:<br/>which services implement SEPA Instant<br/>and lack regression coverage"]
+    Q --> W["Wiki<br/>manual search, stale"]
+    Q --> D["Doc set<br/>200 files, no join"]
+    Q --> V["Vector RAG<br/>similar text, not exact"]
+    Q --> G["Typed graph<br/>5-hop traversal, exact"]
+    W --> X1["No answer"]
+    D --> X2["No answer"]
+    V --> X3["Plausible answer,<br/>unverifiable"]
+    G --> OK["Exact answer<br/>with evidence"]
+
+    style G fill:#1B5E20,color:#ffffff
+    style OK fill:#1B5E20,color:#ffffff
+    style X1 fill:#8B1A1A,color:#ffffff
+    style X2 fill:#8B1A1A,color:#ffffff
+    style X3 fill:#B8860B,color:#ffffff
+    style Q fill:#1B2A4A,color:#ffffff

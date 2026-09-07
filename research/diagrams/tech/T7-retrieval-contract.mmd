@@ -1,0 +1,18 @@
+flowchart TB
+    T["Task:<br/>add currency check to VoP matching"]
+    T --> R["ROUTER<br/>classify task, select agent role"]
+    R --> QP["QUERY PLANNER<br/>role template to graph query<br/>depth and node budget enforced"]
+    QP --> KG[("SEMANTIC<br/>SUBSTRATE")]
+    KG --> SG["SUBGRAPH<br/>typed, bounded, ranked"]
+    SG --> CP["CONTEXT PACK<br/>business terms, contracts,<br/>call paths, tests, conventions,<br/>plus surgical source excerpts"]
+    CP --> AG["AGENT<br/>narrow role, narrow context"]
+    AG --> OUT["PROPOSED ARTEFACT"]
+    OUT --> VAL["VALIDATION<br/>ontology, compiler, tests"]
+    VAL --> HG["HUMAN GATE"]
+    HG --> KG
+
+    style KG fill:#E65100,color:#ffffff
+    style CP fill:#1B5E20,color:#ffffff
+    style VAL fill:#B8860B,color:#ffffff
+    style HG fill:#8B1A1A,color:#ffffff
+    style T fill:#1B2A4A,color:#ffffff

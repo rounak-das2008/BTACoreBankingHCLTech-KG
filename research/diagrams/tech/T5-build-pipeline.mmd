@@ -1,0 +1,23 @@
+flowchart LR
+    L0["L0 SCOUT<br/>build files only<br/>Repository, Module<br/>NO MODEL"]
+    L1["L1 CARTOGRAPHER<br/>LSP, tree-sitter<br/>Class, Method, CALLS<br/>NO MODEL"]
+    L2["L2 CONTRACT MAPPER<br/>OpenAPI, Avro, DB catalog<br/>Endpoint, Topic, Table<br/>NO MODEL"]
+    L3["L3 DELIVERY MAPPER<br/>ADO, Git, pipelines<br/>WorkItem, Release, Test<br/>NO MODEL"]
+    L4["L4 ONTOLOGY LOADER<br/>BIAN, ISO 20022, FIBO<br/>ServiceDomain, MessageType<br/>NO MODEL"]
+    L5["L5 SEMANTIC BRIDGE<br/>candidates + LLM<br/>IMPLEMENTS, CARRIES<br/>MODEL USED"]
+    L6["L6 RATIFICATION<br/>human architect<br/>promotes to confidence 1.0<br/>HUMAN"]
+
+    L0 --> L1
+    L1 --> L2
+    L2 --> L3
+    L3 --> L5
+    L4 --> L5
+    L5 --> L6
+
+    style L0 fill:#1B2A4A,color:#ffffff
+    style L1 fill:#2E5E8B,color:#ffffff
+    style L2 fill:#2E5E8B,color:#ffffff
+    style L3 fill:#2E5E8B,color:#ffffff
+    style L4 fill:#2E7D32,color:#ffffff
+    style L5 fill:#B8860B,color:#ffffff
+    style L6 fill:#8B1A1A,color:#ffffff

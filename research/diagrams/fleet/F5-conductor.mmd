@@ -1,0 +1,18 @@
+flowchart TB
+    CON["THE CONDUCTOR<br/>holds pipeline state only, never content"]
+    CON --> W1["dispatch"]
+    W1 --> AG["Agent pool<br/>L1 to L6"]
+    AG --> R["result or failure"]
+    R --> CON
+    CON --> D{"outcome?"}
+    D -->|"success"| NEXT["schedule next stage"]
+    D -->|"transient fail"| RETRY["retry with backoff"]
+    D -->|"logic fail"| REPLAN["replan the stage"]
+    D -->|"out of scope"| ESC["escalate to named human<br/>context preserved"]
+    RETRY --> AG
+    REPLAN --> AG
+    NEXT --> AG
+
+    style CON fill:#6A1B9A,color:#ffffff
+    style ESC fill:#8B1A1A,color:#ffffff
+    style D fill:#E65100,color:#ffffff

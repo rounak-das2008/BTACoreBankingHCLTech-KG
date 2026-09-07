@@ -1,0 +1,16 @@
+flowchart LR
+    WI["WorkItem"] -->|"DELIVERED_BY"| PR["PullRequest"]
+    PR -->|"TOUCHES"| CLS["Class"]
+    PR -->|"SHIPPED_IN"| REL["Release"]
+    REL -->|"DEPLOYED_TO"| ENV["Environment"]
+    DEF["Defect"] -->|"RAISED_AGAINST"| REL
+    TST["Test"] -->|"COVERS"| CLS
+    TST -->|"VERIFIES"| BP["BusinessProcess"]
+    REL -->|"DEPLOYED"| SVC["Service"]
+    SVC -->|"CONTAINS"| CLS
+
+    style TST fill:#6A1B9A,color:#ffffff
+    style REL fill:#E65100,color:#ffffff
+    style DEF fill:#8B1A1A,color:#ffffff
+    style BP fill:#2E7D32,color:#ffffff
+    style SVC fill:#2E5E8B,color:#ffffff

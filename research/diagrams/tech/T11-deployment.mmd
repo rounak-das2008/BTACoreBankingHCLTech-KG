@@ -1,0 +1,48 @@
+flowchart LR
+    subgraph SRC["SOURCES - read only"]
+        S1["Azure DevOps<br/>repos, boards, pipelines"]
+        S2["OpenShift BIAB<br/>manifests, runtime"]
+        S3["Red Panda<br/>topics, schemas"]
+        S4["Databases<br/>catalog only"]
+        S5["Forge, FSA docs,<br/>Teams transcripts"]
+    end
+
+    subgraph EXT["EXTRACTION - in ING tenancy"]
+        E1["Deterministic<br/>extractors L0-L4"]
+        E2["Bridge proposer<br/>L5, model calls"]
+    end
+
+    subgraph STORE["SUBSTRATE"]
+        G[("Property graph<br/>+ ontology store")]
+        IDX["Text and vector index<br/>entry-point lookup only"]
+    end
+
+    API["QUERY LAYER<br/>role templates,<br/>node budgets, authz"]
+
+    subgraph CONS["CONSUMERS"]
+        A1["Agent fleet<br/>via GHCP"]
+        A2["Developer query<br/>and IDE"]
+        A3["Evidence pack<br/>generator"]
+        A4["Architecture and<br/>freshness views"]
+    end
+
+    S1 --> E1
+    S2 --> E1
+    S3 --> E1
+    S4 --> E1
+    S5 --> E2
+    E1 --> G
+    E2 --> G
+    G --- IDX
+    G --> API
+    API --> A1
+    API --> A2
+    API --> A3
+    API --> A4
+
+    style G fill:#E65100,color:#ffffff
+    style E2 fill:#B8860B,color:#ffffff
+    style E1 fill:#1B5E20,color:#ffffff
+    style API fill:#1B2A4A,color:#ffffff
+    style SRC fill:#ECEFF1
+    style CONS fill:#E3F2FD

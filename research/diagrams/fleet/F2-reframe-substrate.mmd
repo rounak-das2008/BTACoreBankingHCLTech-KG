@@ -1,0 +1,32 @@
+flowchart LR
+    subgraph SRC["RAW SOURCES - read once, deterministically"]
+        S1["FSA, transcripts"]
+        S2["Repos, ADO"]
+        S3["OpenShift, Red Panda"]
+        S4["Forge, INGenious"]
+    end
+    KG[("SEMANTIC SUBSTRATE<br/>estate graph + business ontology<br/>+ traceability")]
+    subgraph AG["THIN AGENTS - each gets a bounded slice"]
+        A1["Comprehend"]
+        A2["Specify"]
+        A3["Construct"]
+        A4["Verify"]
+        A5["Operate"]
+        A6["Curate and Govern"]
+    end
+    S1 --> KG
+    S2 --> KG
+    S3 --> KG
+    S4 --> KG
+    KG --> A1
+    KG --> A2
+    KG --> A3
+    KG --> A4
+    KG --> A5
+    KG --> A6
+    A3 -.->|"writes back"| KG
+    A4 -.->|"writes back"| KG
+
+    style KG fill:#E65100,color:#ffffff
+    style SRC fill:#ECEFF1
+    style AG fill:#E8F5E9

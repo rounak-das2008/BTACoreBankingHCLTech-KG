@@ -1,0 +1,17 @@
+flowchart LR
+    EV["Estate events<br/>merge, deploy, schema change,<br/>contract publish, incident"]
+    EV --> DT["CHANGE DETECTOR<br/>fingerprint per artefact"]
+    DT --> RX["INCREMENTAL RE-EXTRACT<br/>only affected subgraph"]
+    RX --> DF["DIFF<br/>added, removed, changed nodes"]
+    DF --> CN{"Contradiction or<br/>orphaned bridge edge?"}
+    CN -->|"no"| UP["UPDATE<br/>refresh lastVerifiedAt"]
+    CN -->|"yes"| FL["FLAG TO CURATOR<br/>stale edge quarantined"]
+    FL --> HU["Human resolves"]
+    HU --> UP
+    UP --> KG[("SUBSTRATE")]
+    KG --> MT["FRESHNESS METRICS<br/>coverage, staleness, contradictions"]
+
+    style KG fill:#E65100,color:#ffffff
+    style FL fill:#B8860B,color:#ffffff
+    style MT fill:#1B5E20,color:#ffffff
+    style EV fill:#1B2A4A,color:#ffffff

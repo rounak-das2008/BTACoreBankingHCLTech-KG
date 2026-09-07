@@ -1,0 +1,34 @@
+flowchart LR
+    subgraph SRC["RAW SOURCES"]
+        S1["FSA documents"]
+        S2["Teams transcripts"]
+        S3["Azure repos"]
+        S4["ADO boards"]
+        S5["Test cases"]
+        S6["Defects"]
+    end
+    subgraph AG["SEVEN AGENTS - each re-derives privately"]
+        A1["Story Gen"]
+        A3["Code Gen"]
+        A4["Unit Test Gen"]
+        A7["Mechanic"]
+    end
+    S1 --> A1
+    S2 --> A1
+    S1 --> A3
+    S2 --> A3
+    S3 --> A3
+    S1 --> A4
+    S3 --> A4
+    S1 --> A7
+    S3 --> A7
+    S5 --> A7
+    S6 --> A7
+    A1 --> X["No shared model.<br/>No memory between runs.<br/>No agent knows what another learned."]
+    A3 --> X
+    A4 --> X
+    A7 --> X
+
+    style X fill:#8B1A1A,color:#ffffff
+    style SRC fill:#ECEFF1
+    style AG fill:#FFEBEE

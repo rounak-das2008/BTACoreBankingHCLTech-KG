@@ -1,0 +1,18 @@
+flowchart TB
+    P["Agent proposes artefact"]
+    P --> C1{"Schema valid?<br/>Pydantic / JSON Schema"}
+    C1 -->|"no"| RJ["REJECT<br/>return typed error"]
+    C1 -->|"yes"| C2{"Ontology constraints hold?<br/>cardinality, disjointness,<br/>domain and range, value set"}
+    C2 -->|"no"| RJ
+    C2 -->|"yes"| C3{"Compiles, lints,<br/>tests pass?"}
+    C3 -->|"no"| RJ
+    C3 -->|"yes"| C4{"Blast radius within<br/>declared scope?"}
+    C4 -->|"no"| ESC["ESCALATE<br/>named human, context preserved"]
+    C4 -->|"yes"| HG["HUMAN GATE"]
+    HG --> ACC["ACCEPT<br/>write back to graph"]
+
+    style RJ fill:#8B1A1A,color:#ffffff
+    style ESC fill:#B8860B,color:#ffffff
+    style ACC fill:#1B5E20,color:#ffffff
+    style HG fill:#6A1B9A,color:#ffffff
+    style P fill:#1B2A4A,color:#ffffff

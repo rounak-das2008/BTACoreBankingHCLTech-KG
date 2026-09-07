@@ -1,0 +1,10 @@
+flowchart LR
+    A["Deterministic extraction<br/>confidence = 1.0"] --> G["Graph"]
+    B["Model inference<br/>confidence < 1.0"] --> G
+    G --> Q1["Engineering queries<br/>use everything"]
+    G --> Q2["Audit and evidence queries<br/>confidence = 1.0 only"]
+
+    style A fill:#1B5E20,color:#ffffff
+    style B fill:#B8860B,color:#ffffff
+    style Q2 fill:#8B1A1A,color:#ffffff
+    style G fill:#1B2A4A,color:#ffffff

@@ -1,0 +1,38 @@
+flowchart TB
+    REG["Regulation<br/>EU Instant Payments Regulation"]
+    SD["BIAN ServiceDomain<br/>Payment Execution"]
+    BP["BusinessProcess<br/>Verification of Payee"]
+    MSG["ISO 20022<br/>pacs.008 / camt.026"]
+
+    SVC1["Service<br/>vop-matching-svc"]
+    SVC2["Service<br/>payment-orchestrator"]
+    EP["Endpoint<br/>POST /v2/payee/verify"]
+    CLS["Class<br/>PayeeMatchRule"]
+    TOP["Topic<br/>vop.match.result"]
+    TBL["Table<br/>payee_match_audit"]
+
+    TST["Test suite<br/>INGenious VOP-REG-*"]
+    WI["WorkItem<br/>BTA-4471"]
+    REL["Release<br/>2026.08.2"]
+
+    REG --> BP
+    BP --> SD
+    MSG --> EP
+    SD --> SVC1
+    SVC1 --> EP
+    SVC1 --> CLS
+    SVC1 --> TOP
+    SVC1 --> TBL
+    SVC2 --> EP
+    TST --> CLS
+    TST --> BP
+    WI --> REL
+    REL --> SVC1
+
+    style REG fill:#1B2A4A,color:#ffffff
+    style BP fill:#2E7D32,color:#ffffff
+    style SD fill:#2E7D32,color:#ffffff
+    style MSG fill:#2E7D32,color:#ffffff
+    style CLS fill:#E65100,color:#ffffff
+    style TST fill:#6A1B9A,color:#ffffff
+    style REL fill:#8B1A1A,color:#ffffff

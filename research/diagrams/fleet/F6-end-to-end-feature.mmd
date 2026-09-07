@@ -1,0 +1,22 @@
+flowchart LR
+    R["REGULATION<br/>Verification of Payee<br/>is mandated"]
+    R --> AN["ANALYST<br/>story + acceptance criteria<br/>linked to the regulation"]
+    AN --> G1{"BA<br/>confirms"}
+    G1 --> PL["PLANNER<br/>blast radius: 2 services,<br/>1 contract, 14 tests"]
+    PL --> G2{"Engineer<br/>validates plan"}
+    G2 --> BU["BUILDER<br/>implements inside<br/>declared scope"]
+    BU --> UT["UNIT TEST AUTHOR<br/>covers new paths<br/>and uncovered callers"]
+    UT --> AD["ADJUDICATOR<br/>scope, intent,<br/>constraint, evidence"]
+    AD --> G3{"Engineer<br/>approves PR"}
+    G3 --> TD["TEST DESIGNER<br/>+ SCRIPT AUTHOR<br/>risk-targeted regression"]
+    TD --> REL["RELEASE"]
+    REL --> RG["REGISTRAR<br/>evidence pack<br/>generated, not assembled"]
+    REL --> CU["CURATOR<br/>substrate updated"]
+
+    style R fill:#1B2A4A,color:#ffffff
+    style AD fill:#8B1A1A,color:#ffffff
+    style RG fill:#6A1B9A,color:#ffffff
+    style CU fill:#E65100,color:#ffffff
+    style G1 fill:#FFF3E0
+    style G2 fill:#FFF3E0
+    style G3 fill:#FFF3E0

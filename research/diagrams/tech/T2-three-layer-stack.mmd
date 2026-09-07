@@ -1,0 +1,47 @@
+flowchart LR
+    subgraph L2["BUSINESS ONTOLOGY - adopted, not invented"]
+        B1["Regulation<br/>EU IPR, PSD2,<br/>scheme rulebooks"]
+        B2["BIAN Service Domain<br/>Payment Execution,<br/>Payment Order"]
+        B3["ISO 20022 Message<br/>pacs.008, pain.001,<br/>camt.054"]
+        B4["Business Term<br/>Beneficiary,<br/>Settlement, Mandate"]
+    end
+
+    subgraph L1["SEMANTIC BRIDGE"]
+        M1["IMPLEMENTS"]
+        M2["CARRIES"]
+        M3["GOVERNED_BY"]
+        M4["VERIFIED_BY"]
+    end
+
+    subgraph L0["TECHNICAL ONTOLOGY - the estate as it is"]
+        T1["Service, Module,<br/>Class, Method"]
+        T2["Endpoint, Topic,<br/>Table, Column"]
+        T3["Test, Pipeline,<br/>Release, Environment"]
+        T4["WorkItem, PR, Commit,<br/>Defect, Incident"]
+    end
+
+    subgraph L00["GROUND TRUTH - no LLM touches this"]
+        G1["Build files,<br/>LSP, AST"]
+        G2["OpenAPI, WSDL,<br/>Avro, DB catalog"]
+        G3["Git history, ADO<br/>boards, pipeline logs"]
+    end
+
+    B2 --> M1
+    B3 --> M2
+    M1 --> T1
+    M2 --> T2
+    M4 --> T3
+    T1 --> G1
+    T2 --> G2
+    T4 --> G3
+
+    style L2 fill:#E8F5E9
+    style L1 fill:#FFF3E0
+    style L0 fill:#E3F2FD
+    style L00 fill:#ECEFF1
+    style B2 fill:#2E7D32,color:#ffffff
+    style B3 fill:#2E7D32,color:#ffffff
+    style M1 fill:#E65100,color:#ffffff
+    style M2 fill:#E65100,color:#ffffff
+    style M3 fill:#E65100,color:#ffffff
+    style M4 fill:#E65100,color:#ffffff

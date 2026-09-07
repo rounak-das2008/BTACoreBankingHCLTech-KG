@@ -1,0 +1,17 @@
+flowchart LR
+    subgraph BAD["TODAY - the generator marks its own work"]
+        B1["Code Gen"] --> B2["Unit Test Gen<br/>same context, same assumptions"]
+        B2 --> B3["Passes.<br/>Both wrong the same way."]
+    end
+    subgraph GOOD["PROPOSED - independent adjudication"]
+        C1["Builder<br/>sees: story, scope, contracts"]
+        C2["Adjudicator<br/>sees: story, scope, diff, results<br/>NOT the Builder's reasoning"]
+        C1 --> C2
+        C2 --> C3["Disagreement is<br/>visible, not silent"]
+    end
+
+    style B3 fill:#8B1A1A,color:#ffffff
+    style C2 fill:#1B5E20,color:#ffffff
+    style C3 fill:#1B5E20,color:#ffffff
+    style BAD fill:#FFEBEE
+    style GOOD fill:#E8F5E9

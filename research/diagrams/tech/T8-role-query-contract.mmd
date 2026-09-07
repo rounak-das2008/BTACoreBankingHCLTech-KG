@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph ROLES["AGENT ROLE"]
+        C["Comprehend"]
+        S["Specify"]
+        K["Construct"]
+        V["Verify"]
+        O["Operate"]
+    end
+    subgraph SLICE["GRAPH SLICE IT MAY REQUEST"]
+        C --> C1["module tree, contracts,<br/>call paths - breadth 3"]
+        S --> S1["business terms, regulation,<br/>similar past work items"]
+        K --> K1["target class, direct callers,<br/>contracts, conventions, tests"]
+        V --> V1["acceptance criteria, coverage,<br/>blast radius - NOT the diff rationale"]
+        O --> O1["traces, incidents, recent<br/>releases touching the path"]
+    end
+
+    style V fill:#8B1A1A,color:#ffffff
+    style V1 fill:#8B1A1A,color:#ffffff
+    style C fill:#2E5E8B,color:#ffffff
+    style S fill:#2E7D32,color:#ffffff
+    style K fill:#6A1B9A,color:#ffffff
+    style O fill:#E65100,color:#ffffff

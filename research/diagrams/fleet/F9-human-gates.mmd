@@ -1,0 +1,18 @@
+flowchart LR
+    A1["Analyst"] --> H1["BA confirms<br/>story and criteria"]
+    H1 --> A2["Planner"]
+    A2 --> H2["Engineer validates<br/>impact and plan"]
+    H2 --> A3["Builder"]
+    A3 --> H3["Engineer approves<br/>PR"]
+    H3 --> A4["Verify layer"]
+    A4 --> H4["Tester signs off<br/>coverage"]
+    H4 --> A5["Release"]
+    A5 --> H5["Delivery lead<br/>owns evidence pack"]
+    LG["Linguist"] --> H0["Architect ratifies<br/>every bridge edge"]
+
+    style H0 fill:#8B1A1A,color:#ffffff
+    style H1 fill:#8B1A1A,color:#ffffff
+    style H2 fill:#8B1A1A,color:#ffffff
+    style H3 fill:#8B1A1A,color:#ffffff
+    style H4 fill:#8B1A1A,color:#ffffff
+    style H5 fill:#8B1A1A,color:#ffffff

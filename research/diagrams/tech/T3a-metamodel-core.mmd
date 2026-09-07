@@ -1,0 +1,19 @@
+flowchart LR
+    REG["Regulation"] -->|"MANDATES"| SD["ServiceDomain"]
+    SD -->|"IMPLEMENTED_BY"| SVC["Service"]
+    MSG["MessageType"] -->|"CARRIED_BY"| EP["Endpoint"]
+    MSG -->|"CARRIED_BY"| TOP["Topic"]
+    TERM["BusinessTerm"] -->|"REALISED_AS"| COL["Column"]
+
+    SVC -->|"CONTAINS"| CLS["Class"]
+    CLS -->|"CALLS"| CLS
+    SVC -->|"EXPOSES"| EP
+    SVC -->|"PRODUCES"| TOP
+    SVC -->|"WRITES"| TBL["Table"]
+    TBL -->|"HAS"| COL
+
+    style REG fill:#1B2A4A,color:#ffffff
+    style SD fill:#2E7D32,color:#ffffff
+    style MSG fill:#2E7D32,color:#ffffff
+    style TERM fill:#2E7D32,color:#ffffff
+    style SVC fill:#2E5E8B,color:#ffffff

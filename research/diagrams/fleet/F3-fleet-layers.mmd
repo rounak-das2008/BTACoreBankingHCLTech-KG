@@ -1,0 +1,27 @@
+flowchart LR
+    L0["L0 GROUND TRUTH<br/>no agents, only tools<br/>build files, LSP, OpenAPI,<br/>DB catalog, Git, ADO"]
+    L1["L1 COMPREHEND<br/>5 agents<br/>Scout, Cartographer,<br/>Contract Mapper,<br/>Archivist, Linguist"]
+    KG[("SEMANTIC<br/>SUBSTRATE<br/>estate graph<br/>+ ontology<br/>+ traceability")]
+    L2["L2 SPECIFY<br/>2 agents<br/>Analyst, Planner<br/>impact known<br/>before build"]
+    L3["L3 CONSTRUCT<br/>2 agents<br/>Builder,<br/>Unit Test Author"]
+    L4["L4 VERIFY<br/>3 agents<br/>Test Designer, Script<br/>Author, Adjudicator<br/>INDEPENDENT"]
+    L5["L5 OPERATE<br/>2 agents<br/>Triage, Mechanic"]
+    L6["L6 CURATE and GOVERN<br/>2 agents<br/>Curator keeps it true<br/>Registrar proves it"]
+
+    L0 --> L1
+    L1 --> KG
+    KG --> L2
+    L2 --> L3
+    L3 --> L4
+    L4 --> L5
+    L5 --> L6
+    L6 -.->|"every change enriches the substrate"| KG
+
+    style L0 fill:#1B2A4A,color:#ffffff
+    style L1 fill:#2E5E8B,color:#ffffff
+    style KG fill:#E65100,color:#ffffff
+    style L2 fill:#2E7D32,color:#ffffff
+    style L3 fill:#5B3A8E,color:#ffffff
+    style L4 fill:#8B1A1A,color:#ffffff
+    style L5 fill:#00695C,color:#ffffff
+    style L6 fill:#6A1B9A,color:#ffffff

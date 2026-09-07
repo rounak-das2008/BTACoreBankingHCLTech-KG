@@ -1,0 +1,29 @@
+flowchart LR
+    subgraph NOW["TODAY - seven agents"]
+        N1["User Story Generation"]
+        N2["Test Case Generation"]
+        N3["Code Generation"]
+        N4["Unit Test Case Generation"]
+        N5["INGenious Script Generator"]
+        N6["Defect Triage"]
+        N7["Mechanic"]
+    end
+    subgraph NEXT["PRIME.AI v2 - repositioned"]
+        M1["L2 Analyst"]
+        M2["L4 Test Designer"]
+        M3["L3 Builder"]
+        M4["L3 Unit Test Author"]
+        M5["L4 Script Author"]
+        M6["L5 Triage"]
+        M7["L5 Mechanic"]
+    end
+    N1 --> M1
+    N2 --> M2
+    N3 --> M3
+    N4 --> M4
+    N5 --> M5
+    N6 --> M6
+    N7 --> M7
+
+    style NOW fill:#ECEFF1
+    style NEXT fill:#E8F5E9
